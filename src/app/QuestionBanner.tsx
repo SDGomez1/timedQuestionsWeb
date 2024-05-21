@@ -7,7 +7,7 @@ export default function QuestionBanner(props: {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const [init, setInit] = useState(false);
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(60);
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {

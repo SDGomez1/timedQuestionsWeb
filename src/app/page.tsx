@@ -142,8 +142,10 @@ export default function Home() {
     return <Card data={data} />;
   });
   return (
-    <main className=" min-h-screen grid grid-cols-6 grid-rows-5 p-20 justify-items-center items-center">
-      {cards}
+    <main className=" h-screen w-screen p-10">
+      <span className="border border-black/50 w-full h-full  grid grid-cols-6 grid-rows-5 justify-items-center items-center rounded-lg">
+        {cards}
+      </span>
     </main>
   );
 }
