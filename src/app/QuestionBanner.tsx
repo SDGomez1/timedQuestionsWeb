@@ -7,7 +7,7 @@ export default function QuestionBanner(props: {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const [init, setInit] = useState(false);
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(10);
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function QuestionBanner(props: {
         {finished ? (
           <button
             onClick={() => props.setIsOpen(false)}
-            className="p-2 border rounded-md border-black"
+            className="p-2 border rounded-md border-black w-36"
           >
             Cerrar
           </button>
@@ -45,7 +45,7 @@ export default function QuestionBanner(props: {
         ) : (
           <button
             onClick={() => setInit(true)}
-            className="p-2 border rounded-md border-black"
+            className="p-2 border rounded-md border-black w-36"
           >
             Empezar
           </button>
