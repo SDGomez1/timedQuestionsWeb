@@ -1,13 +1,12 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { Questiondata } from "./page";
 
 export default function QuestionBanner(props: {
-  data: Questiondata;
+  title: string;
 
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const [init, setInit] = useState(false);
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(30);
   const [finished, setFinished] = useState(false);
 
   useEffect(() => {
@@ -32,7 +31,7 @@ export default function QuestionBanner(props: {
     <div className="absolute w-screen h-screen flex justify-center items-center top-0 left-0">
       <span className="fixed w-screen h-screen bg-black/15 left-0 top-0 " />
       <div className="w-1/2 bg-white font-medium z-10 text-center h-64 flex justify-center items-center rounded-md  p-20 flex-col">
-        <p className="text-3xl mb-8">{props.data.question}</p>
+        <p className="text-3xl mb-8">{props.title}</p>
         {finished ? (
           <button
             onClick={() => props.setIsOpen(false)}
