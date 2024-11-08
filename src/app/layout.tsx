@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Raleway } from "next/font/google";
 import "./globals.css";
+import { Provider } from "react-redux";
+import Providers from "./Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={raleway.className}>{children}</body>
+      <Providers>
+        <body className={raleway.className}>{children}</body>
+      </Providers>
     </html>
   );
 }

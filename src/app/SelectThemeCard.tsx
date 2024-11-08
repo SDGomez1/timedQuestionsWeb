@@ -3,19 +3,26 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "./Card";
+import ArrorLeft from "@/assets/ArrowLeft";
+import { useDispatch } from "react-redux";
+import { updateNowOpened } from "@/store/features/stateSlice";
 interface SelectThemeCardProps {
   title: string;
   color: string;
   setSelectedColor: Dispatch<SetStateAction<string>>;
   data: any[];
+  category: "VB" | "SM" | "CB" | "C";
 }
 export default function SelectThemeCard({
   title,
   color,
   setSelectedColor,
   data,
+
+  category,
 }: SelectThemeCardProps) {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
   return (
     <>
       {!open ? (
@@ -31,12 +38,36 @@ export default function SelectThemeCard({
           <p className="shrink flex">{title}</p>{" "}
         </motion.div>
       ) : (
-        <div className="flex flex-col gap-2">
-          {data.map((title, index) => {
-            console.log(title.title);
-            return <Card index={index + 1} key={index} title={title.title} />;
-          })}
-        </div>
+        <>
+          <span
+            onClick={() => {
+              const array = [true, true, true, true];
+              dispatch(updateNowOpened(array));
+              setSelectedColor("#fff");
+              setOpen(false);
+            }}
+            className="cursor-pointer"
+          >
+            <ArrorLeft className="absolute top-8 size-8 left-8" />
+          </span>
+
+          <div className="flex flex-col gap-2">
+            {data.map((title, index) => {
+              return (
+                <Card
+                  category={category}
+                  qUsed={title.used}
+                  qIndex={index + 1}
+                  setSectionOpened={setOpen}
+                  setColor={setSelectedColor}
+                  index={index + 1}
+                  key={index}
+                  title={title.title}
+                />
+              );
+            })}
+          </div>
+        </>
       )}
     </>
   );
