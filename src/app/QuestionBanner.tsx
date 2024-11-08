@@ -9,7 +9,7 @@ export default function QuestionBanner(props: {
   setColor: Dispatch<SetStateAction<string>>;
 }) {
   const [init, setInit] = useState(false);
-  const [timer, setTimer] = useState(3);
+  const [timer, setTimer] = useState(30);
   const [finished, setFinished] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
