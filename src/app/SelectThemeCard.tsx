@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 
 import { Dispatch, SetStateAction, useState } from "react";
 import { motion } from "framer-motion";
@@ -71,4 +71,4 @@ export default function SelectThemeCard({
       )}
     </>
   );
-}
+}*/
